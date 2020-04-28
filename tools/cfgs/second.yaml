@@ -20,7 +20,7 @@ DATA_CONFIG:
 
     TEST:
         INFO_PATH: [
-            data/kitti/kitti_infos_val.pkl
+            data/kitti/kitti_infos_test.pkl
         ]
         SHUFFLE_POINTS: False
         MAX_NUMBER_OF_VOXELS: 40000
@@ -147,7 +147,7 @@ MODEL:
             GRAD_NORM_CLIP: 10
 
     TEST:
-        SPLIT: val
+        SPLIT: test
 
         NMS_TYPE: nms_gpu
         MULTI_CLASSES_NMS: False

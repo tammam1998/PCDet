@@ -1,0 +1,5 @@
+to dublicate the calibration file base on the Imageset
+cat ../../ImageSets/test.txt | while read line; do cp calib_velo_to_cam.txt $line.txt;
+
+to fill the imageset test.txt
+ls *.png | cut -f 1 -d "." > ../../ImageSets/test.txt

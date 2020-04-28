@@ -36,7 +36,7 @@ class BaseKittiDataset(DatasetTemplate):
 
     def get_image_shape(self, idx):
         img_file = os.path.join(self.root_split_path, 'image_2', '%s.png' % idx)
-        assert os.path.exists(img_file)
+        assert os.path.exists(img_file), img_file
         return np.array(io.imread(img_file).shape[:2], dtype=np.int32)
 
     def get_label(self, idx):
@@ -325,7 +325,7 @@ class BaseKittiDataset(DatasetTemplate):
         return annos
 
     def evaluation(self, det_annos, class_names, **kwargs):
-        assert 'annos' in self.kitti_infos[0].keys()
+        # assert 'annos' in self.kitti_infos[0].keys()
         import pcdet.datasets.kitti.kitti_object_eval_python.eval as kitti_eval
 
         if 'annos' not in self.kitti_infos[0]:
