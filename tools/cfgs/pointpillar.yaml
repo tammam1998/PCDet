@@ -6,7 +6,7 @@ DATA_CONFIG:
     FOV_POINTS_ONLY: True
     NUM_POINT_FEATURES: {
         'total': 4,
-        'use': 3
+        'use': 4
     }
     POINT_CLOUD_RANGE: [0, -39.68, -3, 69.12, 39.68, 1]
     MASK_POINTS_BY_RANGE: True
@@ -20,7 +20,7 @@ DATA_CONFIG:
 
     TEST:
         INFO_PATH: [
-            data/kitti/kitti_infos_test.pkl
+            data/kitti/kitti_infos_val.pkl
         ]
         SHUFFLE_POINTS: False
         MAX_NUMBER_OF_VOXELS: 40000
@@ -151,7 +151,7 @@ MODEL:
             GRAD_NORM_CLIP: 10
 
     TEST:
-        SPLIT: test
+        SPLIT: val
 
         NMS_TYPE: nms_gpu
         MULTI_CLASSES_NMS: False
@@ -167,7 +167,7 @@ MODEL:
         EVAL_METRIC: kitti
 
         BOX_FILTER: {
-            'USE_IMAGE_AREA_FILTER': False,
+            'USE_IMAGE_AREA_FILTER': True,
             'LIMIT_RANGE': [0, -40, -3.0, 70.4, 40, 3.0]
         }
 

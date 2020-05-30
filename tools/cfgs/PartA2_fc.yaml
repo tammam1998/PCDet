@@ -6,10 +6,10 @@ DATA_CONFIG:
     FOV_POINTS_ONLY: True
     NUM_POINT_FEATURES: {
         'total': 4,
-        'use': 3
+        'use': 4
     }
     POINT_CLOUD_RANGE: [0, -40, -3, 70.4, 40, 1]
-    MASK_POINTS_BY_RANGE: False
+    MASK_POINTS_BY_RANGE: True
 
     TRAIN:
         INFO_PATH: [
@@ -20,7 +20,7 @@ DATA_CONFIG:
 
     TEST:
         INFO_PATH: [
-            data/kitti/kitti_infos_test.pkl
+            data/kitti/kitti_infos_val.pkl
         ]
         SHUFFLE_POINTS: False
         MAX_NUMBER_OF_VOXELS: 40000
@@ -189,7 +189,7 @@ MODEL:
             GRAD_NORM_CLIP: 10
 
     TEST:
-        SPLIT: test
+        SPLIT: val
         NMS_PRE_MAXSIZE: 1024
         NMS_POST_MAXSIZE: 100
         RPN_NMS_THRESH: 0.7
@@ -209,7 +209,7 @@ MODEL:
         EVAL_METRIC: kitti
 
         BOX_FILTER: {
-            'USE_IMAGE_AREA_FILTER': False,
+            'USE_IMAGE_AREA_FILTER': True,
             'LIMIT_RANGE': [0, -40, -3.0, 70.4, 40, 3.0]
         }
 
