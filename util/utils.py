@@ -1,6 +1,5 @@
 import numpy as np
 from mayavi import mlab
-import open3d as o3d
 import struct
 def load_velo_scan(velo_filename, dtype=np.float32, n_vec=4):
     scan = np.fromfile(velo_filename, dtype=dtype)
@@ -29,20 +28,6 @@ def draw_lidar_simple(pc, color=None):
     mlab.show()
     return fig
 
-def convert_bin_to_pcd_open3dviz(array):
-    # size_float = 4
-    # list_pcd = []
-    # with open(binFilePath, "rb") as f:
-    #     byte = f.read(size_float * 4)
-    #     while byte:
-    #         x, y, z, intensity = struct.unpack("ffff", byte)
-    #         list_pcd.append([x, y, z])
-    #         byte = f.read(size_float * 4)
-    list_pcd = array[:, :3]
-    np_pcd = np.asarray(list_pcd)
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(np_pcd)
-    return pcd
 
 def convert_bin_to_pcd(binFilePath):
     list_pcd = load_velo_scan(binFilePath)[:, :3]
