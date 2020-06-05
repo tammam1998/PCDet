@@ -9,7 +9,7 @@ DATA_CONFIG:
         'use': 3
     }
     POINT_CLOUD_RANGE: [0, -40, -3, 70.4, 40, 1]
-    MASK_POINTS_BY_RANGE: True
+    MASK_POINTS_BY_RANGE: False
 
     TRAIN:
         INFO_PATH: [

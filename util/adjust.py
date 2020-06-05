@@ -9,7 +9,7 @@ DEFUALT_PATH = os.path.realpath(__file__).replace("/adjust.py", "")
 
 def main(from_path, to_path):
     only_lidar_files = [os.path.join(from_path, f) for f in os.listdir(from_path) if f.endswith(".bin")]
-    offset = +0.225 #decrease z axis by this amount
+    offset = +0.2 #decrease z axis by this amount
     for lidar_file in only_lidar_files:
         pcd = load_velo_scan(lidar_file)
         # print(pcd[:3, :])
