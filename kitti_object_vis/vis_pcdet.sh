@@ -1,4 +1,6 @@
-cp -r ../data/kitti/testing/velodyne/* data/object/training/velodyne/
+mkdir -p data/object/training/label_2
+
+cp -r ../data/kitti/testing/* data/object/training/
 
 cp -r ../output/second/default/eval/epoch_no_number/test/default/final_result/data/* data/object/training/label_2/
 
